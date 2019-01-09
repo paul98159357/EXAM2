@@ -5,7 +5,7 @@ import threading
 import logging
 import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(4,GPIO.OUT) #led
+GPIO.setup(23,GPIO.OUT) #led
 
 # change this to the values from MCS web console
 DEVICE_INFO = {
@@ -66,16 +66,16 @@ def waitAndExecuteCommand(commandChannel):
 pin = None
 def setupLED():
     global pin
-    pin=GPIO.output(4,GPIO.HIGH)
+    pin=GPIO.output(23,GPIO.HIGH)
 def setLED(state):
     # Note the LED is "reversed" to the pin's GPIO status.
     # So we reverse it here.
     if state:
-        GPIO.output(4,GPIO.HIGH)
+        GPIO.output(23,GPIO.HIGH)
         print ("LED on GPIO-23 is on")
 
     else:
-        GPIO.output(4,GPIO.LOW)
+        GPIO.output(23,GPIO.LOW)
         print ("LED on GPIO-23 is off")
 
 if __name__ == '__main__':
